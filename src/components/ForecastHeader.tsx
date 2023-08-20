@@ -12,6 +12,7 @@ import Animated, {
   useSharedValue,
   withTiming,
 } from 'react-native-reanimated';
+import { useTranslation } from 'react-i18next';
 
 const AnimatedIonicons = Animated.createAnimatedComponent(Ionicons);
 
@@ -19,6 +20,8 @@ export const ForecastHeader = () => {
   const { location, error } = useUserLocation();
   const fetchForecast = useForecast((c) => c.fetchForecast);
   const weather = useForecast((c) => c.weather);
+
+  const { t } = useTranslation();
 
   const rotate = useSharedValue('0deg');
 
@@ -41,7 +44,7 @@ export const ForecastHeader = () => {
       duration: 1000,
       easing: Easing.linear,
     });
-    Toast.show('Refreshed!');
+    Toast.show(t('refreshed'));
   };
 
   useEffect(() => {
