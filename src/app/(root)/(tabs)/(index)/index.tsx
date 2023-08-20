@@ -14,6 +14,7 @@ import { Carousel } from '_components/Carousel';
 //Data
 import homeData from '_assets/data/home.json';
 import { classNames } from '_utils/classNames';
+import { ForecastHeader } from '_components/ForecastHeader';
 
 export default function Index() {
   const { t } = useTranslation();
@@ -27,6 +28,7 @@ export default function Index() {
         'bg-black': colorScheme === 'dark',
       })}
     >
+      <ForecastHeader />
       <Text className="text-blue-500 pt-2 text-2xl text-bold">
         {t('greeting')}
       </Text>
